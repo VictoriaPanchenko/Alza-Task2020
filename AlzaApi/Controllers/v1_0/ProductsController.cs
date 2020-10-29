@@ -23,7 +23,7 @@ namespace AlzaApi.Controllers.v1_0
             _context = context;
         }
 
-        // GET: api/v1/Products
+        // GET: v1/Products
         [HttpGet]
         [MapToApiVersion("1.0")]
 
@@ -34,7 +34,7 @@ namespace AlzaApi.Controllers.v1_0
         }
 
 
-        // GET: api/Products/5
+        // GET: v1/Products/5
         [HttpGet("{id}")]
         [MapToApiVersion("1.0")]
         public async Task<ActionResult<Product>> GetProduct(int id)
@@ -50,12 +50,12 @@ namespace AlzaApi.Controllers.v1_0
         }
 
         
-        // PUT: api/Products/5
+        // PUT: v1/Products/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPut("{id}")]
         [MapToApiVersion("1.0")]
-        public async Task<IActionResult> PutProduct(int id, string description)
+        public async Task<IActionResult> PutProduct(int id, [FromBody]string description)
         {
             try
             {

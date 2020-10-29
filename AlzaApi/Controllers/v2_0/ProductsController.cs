@@ -24,21 +24,18 @@ namespace AlzaApi.Controllers.v2_0
         }
 
 
-        // GET: api/Products
+        // GET: v2/Products
         [HttpGet]
         [MapToApiVersion("2.0")]
         public async Task<ActionResult<IEnumerable<Product>>> GetPagingProducts([FromQuery] Paging request)
         {
-            var products = await _context.Products.ToListAsync();
+            var products = await _context.Products
+                .OrderBy(o => o.Id)
+                // Cursor based pagination
+                .Where(w=>w.Id > request.Offset)
+                .Take(request.Limit).ToListAsync();
 
-            // for clients that may want to page through the entire products set
-            //Response.Headers["x-total-products"] = products.Count().ToString();
-
-            var pagedProducts = products
-              .Skip(request.Offset)
-              .Take(request.Limit).ToList();
-
-            return pagedProducts;
+            return products;
         }
     }
 }
