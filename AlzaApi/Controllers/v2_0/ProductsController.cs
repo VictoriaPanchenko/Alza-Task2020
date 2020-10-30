@@ -1,5 +1,4 @@
-﻿//using AlzaApi.Data;
-using AlzaApi.Models;
+﻿using AlzaApi.Models;
 using AlzaApi.Models.v1_0;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -22,7 +21,6 @@ namespace AlzaApi.Controllers.v2_0
         {
             _context = context;
         }
-
 
         // GET: v2/Products
         [HttpGet]

@@ -1,5 +1,4 @@
-﻿//using AlzaApi.Data;
-using AlzaApi.Models.v1_0;
+﻿using AlzaApi.Models.v1_0;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System;
