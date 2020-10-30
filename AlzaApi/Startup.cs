@@ -5,7 +5,6 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.EntityFrameworkCore;
 using AlzaApi.Data;
-using Microsoft.OpenApi.Models;
 
 namespace AlzaApi
 {

@@ -27,7 +27,7 @@ namespace AlzaApi.Controllers.v2_0
         // GET: v2/Products
         [HttpGet]
         [MapToApiVersion("2.0")]
-        public async Task<ActionResult<IEnumerable<Product>>> GetPagingProducts([FromQuery] Paging request)
+        public async Task<ActionResult<IEnumerable<Product>>> GetPagedProducts([FromQuery] Paging request)
         {
             var products = await _context.Products
                 .OrderBy(o => o.Id)

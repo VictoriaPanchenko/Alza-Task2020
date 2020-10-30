@@ -37,7 +37,7 @@ namespace AlzaApi.Controllers.v1_0
         // GET: v1/Products/5
         [HttpGet("{id}")]
         [MapToApiVersion("1.0")]
-        public async Task<ActionResult<Product>> GetProduct(int id)
+        public async Task<ActionResult<Product>> GetProductById(int id)
         {
             var product = await _context.Products.FindAsync(id);
 
@@ -55,7 +55,7 @@ namespace AlzaApi.Controllers.v1_0
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPut("{id}")]
         [MapToApiVersion("1.0")]
-        public async Task<IActionResult> PutProduct(int id, [FromBody]string description)
+        public async Task<IActionResult> UpdateDescription(int id, [FromBody]string description)
         {
             try
             {
