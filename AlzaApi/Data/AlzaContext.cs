@@ -4,15 +4,23 @@ using AlzaApi.Models.v1_0;
 
 namespace AlzaApi.Data
 {
+    /// <summary>
+    /// Database context
+    /// </summary>
     public class AlzaContext : DbContext
     {
+        /// <inheritdoc />
         public AlzaContext (DbContextOptions<AlzaContext> options)
             : base(options)
         {
         }
         
+        /// <summary>
+        /// Table Products
+        /// </summary>
         public DbSet<Product> Products { get; set; }
 
+        /// <inheritdoc />
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             var random = new Random();

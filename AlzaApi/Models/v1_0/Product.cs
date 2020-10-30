@@ -2,6 +2,9 @@
 
 namespace AlzaApi.Models.v1_0
 {
+    /// <summary>
+    /// Product entity
+    /// </summary>
     public class Product
     {
         [Key]

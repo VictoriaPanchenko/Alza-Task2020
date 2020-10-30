@@ -1,3 +1,5 @@
+using System.IO;
+using System.Reflection;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -52,6 +54,9 @@ namespace AlzaApi
                 {
                     // add a custom operation filter which sets default values
                     options.OperationFilter<SwaggerDefaultValues>();
+
+                    // integrate xml comments
+                    options.IncludeXmlComments(Path.Combine(Path.GetDirectoryName(Assembly.GetEntryAssembly()?.Location) ?? string.Empty, XmlCommentsFileName));
                 });
         }
 
@@ -82,6 +87,15 @@ namespace AlzaApi
                     }
                 }
             );
+        }
+
+        static string XmlCommentsFileName
+        {
+            get
+            {
+                var fileName = typeof(Startup).GetTypeInfo().Assembly.GetName().Name + ".xml";
+                return fileName;
+            }
         }
     }
 }

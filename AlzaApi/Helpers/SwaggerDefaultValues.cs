@@ -5,6 +5,9 @@ using Swashbuckle.AspNetCore.SwaggerGen;
 
 namespace AlzaApi.Helpers
 {
+    /// <summary>
+    /// Setting of default filters for operations
+    /// </summary>
     public class SwaggerDefaultValues : IOperationFilter
     {
         /// <summary>

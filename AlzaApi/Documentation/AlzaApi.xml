@@ -1,0 +1,120 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>AlzaApi</name>
+    </assembly>
+    <members>
+        <member name="T:AlzaApi.Controllers.v1_0.ProductsController">
+            <summary>
+            v1/Products API
+            </summary>
+        </member>
+        <member name="M:AlzaApi.Controllers.v1_0.ProductsController.#ctor(AlzaApi.Data.AlzaContext)">
+            <summary>
+            Inject dbContext through constructor
+            </summary>
+            <param name="context">dbContext</param>
+        </member>
+        <member name="M:AlzaApi.Controllers.v1_0.ProductsController.GetProducts">
+            <summary>
+            Get all products 
+            </summary>
+            <returns>List of products</returns>
+        </member>
+        <member name="M:AlzaApi.Controllers.v1_0.ProductsController.GetProductById(System.Int32)">
+            <summary>
+            Get specific product by Id 
+            </summary>
+            <param name="id">Id of product</param>
+            <returns>Product</returns>
+        </member>
+        <member name="M:AlzaApi.Controllers.v1_0.ProductsController.UpdateDescription(System.Int32,System.String)">
+            <summary>
+            Update description of product
+            </summary>
+            <param name="id">Id of product</param>
+            <param name="description">New description for product</param>
+            <returns>Status code 200, if update is successful</returns>
+        </member>
+        <member name="T:AlzaApi.Controllers.v2_0.ProductsController">
+            <summary>
+            v2/Products API
+            </summary>
+        </member>
+        <member name="M:AlzaApi.Controllers.v2_0.ProductsController.#ctor(AlzaApi.Data.AlzaContext)">
+            <summary>
+            Inject dbContext through constructor
+            </summary>
+            <param name="context">dbContext</param>
+        </member>
+        <member name="M:AlzaApi.Controllers.v2_0.ProductsController.GetPagedProducts(AlzaApi.Models.Paging)">
+            <summary>
+            Get paged products (default page size 10)
+            </summary>
+            <param name="request">Paging params (limit, offset)</param>
+            <returns>List of products</returns>
+        </member>
+        <member name="T:AlzaApi.Data.AlzaContext">
+            <summary>
+            Database context
+            </summary>
+        </member>
+        <member name="M:AlzaApi.Data.AlzaContext.#ctor(Microsoft.EntityFrameworkCore.DbContextOptions{AlzaApi.Data.AlzaContext})">
+            <inheritdoc />
+        </member>
+        <member name="P:AlzaApi.Data.AlzaContext.Products">
+            <summary>
+            Table Products
+            </summary>
+        </member>
+        <member name="M:AlzaApi.Data.AlzaContext.OnModelCreating(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:AlzaApi.Helpers.ConfigureSwaggerOptions">
+            <summary>
+            Configuration for Swagger Options
+            </summary>
+        </member>
+        <member name="M:AlzaApi.Helpers.ConfigureSwaggerOptions.#ctor(Microsoft.AspNetCore.Mvc.ApiExplorer.IApiVersionDescriptionProvider)">
+            <summary>
+            Initializes a new instance of the <see cref="T:AlzaApi.Helpers.ConfigureSwaggerOptions"/> class.
+            </summary>
+            <param name="provider">The <see cref="T:Microsoft.AspNetCore.Mvc.ApiExplorer.IApiVersionDescriptionProvider">provider</see> used to generate Swagger documents.</param>
+        </member>
+        <member name="M:AlzaApi.Helpers.ConfigureSwaggerOptions.Configure(Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenOptions)">
+            <inheritdoc />
+        </member>
+        <member name="T:AlzaApi.Helpers.SwaggerDefaultValues">
+            <summary>
+            Setting of default filters for operations
+            </summary>
+        </member>
+        <member name="M:AlzaApi.Helpers.SwaggerDefaultValues.Apply(Microsoft.OpenApi.Models.OpenApiOperation,Swashbuckle.AspNetCore.SwaggerGen.OperationFilterContext)">
+            <summary>
+            Applies the filter to the specified operation using the given context.
+            </summary>
+            <param name="operation">The operation to apply the filter to.</param>
+            <param name="context">The current operation filter context.</param>
+        </member>
+        <member name="T:AlzaApi.Models.Paging">
+            <summary>
+            Model for paged requests
+            </summary>
+        </member>
+        <member name="P:AlzaApi.Models.Paging.Limit">
+            <summary>
+            Page size (number of products per page)
+            </summary>
+        </member>
+        <member name="P:AlzaApi.Models.Paging.Offset">
+            <summary>
+            Number of products to skip
+            </summary>
+        </member>
+        <member name="T:AlzaApi.Models.v1_0.Product">
+            <summary>
+            Product entity
+            </summary>
+        </member>
+    </members>
+</doc>

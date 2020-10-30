@@ -7,6 +7,9 @@ using Swashbuckle.AspNetCore.SwaggerGen;
 
 namespace AlzaApi.Helpers
 {
+    /// <summary>
+    /// Configuration for Swagger Options
+    /// </summary>
     public class ConfigureSwaggerOptions : IConfigureOptions<SwaggerGenOptions>
     {
         readonly IApiVersionDescriptionProvider _provider;
