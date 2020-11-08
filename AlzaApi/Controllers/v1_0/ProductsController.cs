@@ -1,9 +1,7 @@
 ﻿using AlzaApi.Models.v1_0;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using AlzaApi.Data;
 
@@ -75,33 +73,20 @@ namespace AlzaApi.Controllers.v1_0
         /// <returns>Status code 200, if update is successful</returns>
         [HttpPut("{id}")]
         [MapToApiVersion("1.0")]
-        public async Task<IActionResult> UpdateDescription(int id, [FromBody]string description)
+        public async Task<IActionResult> UpdateDescription(int id, [FromBody] string description)
         {
-            try
+            var product = await _context.FindAsync<Product>(id);
+            
+            if (product == null)
             {
-                var product = await _context.FindAsync<Product>(id);
-                product.Description = description;
-                _context.Entry(product).State = EntityState.Modified;
-                await _context.SaveChangesAsync();
-            }
-            catch (Exception)
-            {
-                if (!ProductExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
+                return NotFound();
             }
 
+            product.Description = description;
+            _context.Entry(product).State = EntityState.Modified;
+            await _context.SaveChangesAsync();
+
             return Ok();
-        }
-       
-        private bool ProductExists(int id)
-        {
-            return _context.Products.Any(e => e.Id == id);
         }
     }
 }
