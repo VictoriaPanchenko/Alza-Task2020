@@ -1,4 +1,5 @@
 ﻿using System;
+using AlzaApi.Helpers;
 using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -27,7 +28,7 @@ namespace AlzaApi.Controllers
         public IActionResult ErrorLocalDevelopment(
             [FromServices] IWebHostEnvironment webHostEnvironment)
         {
-            if (webHostEnvironment.EnvironmentName != "Development")
+            if (webHostEnvironment.EnvironmentName != Constants.Development)
             {
                 throw new InvalidOperationException(
                     "This shouldn't be invoked in non-development environments.");
